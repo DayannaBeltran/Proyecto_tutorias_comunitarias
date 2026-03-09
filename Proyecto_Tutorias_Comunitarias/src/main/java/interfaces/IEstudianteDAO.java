@@ -19,4 +19,6 @@ public interface IEstudianteDAO {
     List<Estudiante> obtenerTodosPorFiltro(String filtro);
     boolean actualizar(Estudiante estudiante);
     boolean eliminar(int idEstudiante);
-}
+    
+    
+    }

@@ -38,6 +38,12 @@ public class SesionTutoriaController {
             System.err.println("El estado de la sesion no puede estar vacía.");
             return false;
         }
+        if (!(estado.equalsIgnoreCase("Programada") ||
+            estado.equalsIgnoreCase("Completada") ||
+            estado.equalsIgnoreCase("Cancelada"))) {
+            System.err.println("El estado de la sesión no es válido.");
+          return false;
+        }
         
         if (idTutor <= 0) {
             System.err.println("ID de tutor inválido.");
@@ -62,7 +68,12 @@ public class SesionTutoriaController {
         if (sesion == null) {
             System.err.println("La sesion no puede estar vacía.");
         }
-        
+        if (!(sesion.getEstado_sesion().equalsIgnoreCase("Programada") ||
+            sesion.getEstado_sesion().equalsIgnoreCase("Completada") ||
+            sesion.getEstado_sesion().equalsIgnoreCase("Cancelada"))) {
+          System.err.println("El estado de la sesión no es válido.");
+          return false;
+        }
         return sesionDAO.cambiarEstadoTutoria(sesion);
     }
     
